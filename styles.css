@@ -1,0 +1,271 @@
+:root {
+    --button-size: 56px
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background: #151539;
+    color: #f9f9f9;
+}
+
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+
+nav {
+    position: fixed;
+    z-index: 1000;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    background: #030308;
+    padding: 0 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+section {
+    height: 100vh;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+h1 {
+    font-size: 40px;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+h2 { 
+    margin-top: 75px;
+    font-size: 30px;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 5%;
+    background: #45455d;
+}
+
+.end {
+    flex: 0 0 200px;
+}
+.end:last-child {
+    text-align: right;
+}
+
+.background {
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    left: 0;
+    width: var(--button-size);
+    height: var(--button-size);
+    display: grid;
+    place-items: center;
+    transition: 0.3s;
+}
+
+.nav-items {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+.nav-items a {
+    display: grid;
+    margin-right: 15%;
+    place-items: center;
+    width: var(--button-size);
+    height: var(--button-size);
+    padding: 10px;
+    color: #f9f9f9;
+    text-decoration: none;
+    cursor: pointer;
+    user-select: none;
+    position: relative;
+}
+.nav-items a:before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background: linear-gradient(#0076ec, #31148c);
+    z-index: -1;
+    opacity: 0;
+}
+.nav-items a:hover:before{
+    opacity: 1;
+}
+.nav-items a.active:before {
+    opacity: 1;
+}
+.nav-items a.active span {
+    font-weight: bold; /* Puedes agregar otros estilos para resaltar el enlace activo */
+}
+img.invert{
+    filter: invert(100%);
+}
+
+section {
+    scroll-margin-top: 100px;
+}
+
+#Home, #Contact {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    text-align: left;
+}
+
+#Skills {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-end;
+    text-align: right;
+    background: #131353;
+}
+
+table {
+    border-collapse: collapse;
+    width: auto;
+    border: 5px solid white;
+}
+
+td, th {
+    border: 1px solid white;
+    border-bottom: 3px solid white;
+    text-align: center;
+    align-items: center;
+    padding: 8px
+}
+th{
+    text-align: left;
+    border-right: 3px solid white;
+}
+td{
+    text-align: right;
+    align-items: right;
+}
+td img{
+    max-width: 64px;
+    min-width: 64px;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+}
+
+/* Media queries for responsive design */
+
+@media only screen and (max-width: 600px) {
+    .nav-items a {
+        margin-right: 5%;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .nav-items {
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .nav-items a {
+        margin-right: 15px;
+        margin-bottom: 0;
+    }
+}
+
+
+/* Estilos para el botón del menú hamburguesa */
+.burger-menu {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+    position: fixed;
+    top: 10px;
+    left: 10px;
+    z-index: 1100;
+}
+
+.burger-line {
+    display: block;
+    width: 25px;
+    height: 3px;
+    background-color: #fff;
+    margin: 5px 0;
+}
+
+  /* Estilos para el menú de navegación en pantallas grandes */
+@media only screen and (min-width: 601px) {
+    .burger-menu {
+        display: none;
+    }
+
+    nav {
+        position: fixed;
+        z-index: 1000;
+        top: 0;
+        left: 0;
+        right: 0;
+        width: 100%;
+        background: #030308;
+        padding: 0 24px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+}
+
+  /* Estilos para el menú de navegación en pantallas pequeñas */
+@media only screen and (max-width: 600px) {
+    .burger-menu {
+        display: block;
+    }
+
+    nav {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    background: #030308;
+    padding: 0 24px;
+    flex-direction: column;
+    align-items: center;
+    }
+
+    .nav-items {
+    flex-direction: column;
+    align-items: center;
+    }
+
+    .nav-items a {
+    margin-right: 0;
+    margin-bottom: 10px;
+    }
+
+    .nav-items a:before {
+      opacity: 0; /* Ajusta el estilo del hover para que no muestre el fondo */
+    }
+
+    nav.active {
+    display: flex;
+    }
+}

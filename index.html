@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>JorgeGarcia</title>
+</head>
+<body>
+    
+    <button class="burger-menu" onclick="toggleNav()">
+        <span class="burger-line"></span>
+        <span class="burger-line"></span>
+        <span class="burger-line"></span>
+    </button>
+
+    <nav>
+        <h1 class="end">Jorge's Portfolio</h1>
+        <div class="nav-items">
+            <span class="background" id="background"></span>
+            <a href="#Home" class="active">
+                <span class="material-symbols-outlined">
+                    <img src="/img/usuario.png" alt="about" class="invert">
+                </span>
+            </a>
+            <a href="#Skills">
+                <span class="material-symbols-outlined">
+                    <img src="/img/habilidades.png" alt="skills" class="invert">
+                </span>
+            </a>
+            <a href="#Contact">
+                <span class="material-symbols-outlined">
+                    <img src="/img/email.png" alt="contact" class="invert">
+                </span>
+            </a>
+        </div>
+    </nav>
+
+    <section id="Home">
+        <h2>About</h2>
+        Mi nombre es Jorge García y soy fullstack developer especializado en el backednd. <br/><br/>
+        Estudio DAM (Desarrollo de Aplicaciones Multiplataforma). <br/><br/>
+        Mis puntos fuertes son Java y MySQL, <br/>por separado y de manera conjunta mediante conector jdbc. <br/><br/>
+        Me desenvuelvo bien en otros lenguajes, como Pyhton, PHP, HTML, CSS, JS... <br/><br/>
+        Tambien tengo experiencia en frameworks como SpringBoot y React. <br/><br/>
+        En cuanto a lógicas de programación soy bueno con clean code y documentación, testeo...
+
+    </section>
+
+    <section id="Skills">
+        <h2>Skills</h2>
+        <table>
+            <tr>
+                <th>Lenguajes</th>
+                <td>
+                    <img src="/img/Git.png" alt="Git"/">
+                    <img src="/img/github.png" alt="GitHub">
+                    <img src="/img/java.png" alt="Java">
+                </td>
+                <td>
+                    <img src="/img/mysql.png" alt="MySQL">
+                    <img src="/img/python.png" alt="Python">
+                    <img src="/img/php.png" alt="PHP">
+                </td>
+                <td>
+                    <img src="/img/html.png" alt="HTML">
+                    <img src="/img/css.png" alt="CSS">
+                    <img src="/img/js.png" alt="JavaScript">
+                </td>
+                <td>
+                    <img src="/img/bash.png" alt="Bash">
+                    <img src="/img/xml.webp" alt="XML">
+                    <img src="/img/markdown.png" alt="MarkDown" class="invert">
+                </td>
+            </tr>
+
+            <tr>
+                <th>Librerias / Tecnologías</th>
+                <td colspan="2">
+                    <img src="/img/xampp.jpg" alt="Xampp">
+                    <img src="/img/swing.png" alt="JavaSwing">
+                </td>
+                <td colspan="2">
+                    <img src="/img/hibernate.png" alt="Hibernate">
+                    <img src="/img/UML.png" alt="UML" class="invert">
+                </td>
+            </tr>
+
+            <tr>
+                <th>Frameworks</th>
+                <td colspan="2">
+                    <img src="/img/react.png" alt="React">
+                    <img src="/img/spring.png" alt="SpringBoot">
+                </td>
+                <td colspan="2">
+                    <img src="/img/androidstudio.png" alt="AndroidStudio">
+                    <img src="/img/bootstrap.png" alt="Bootstrap">
+                </td>
+            </tr>
+
+            <tr>
+                <th>Metodologias</th>
+                <td colspan="4">
+                    POO <br/>
+                    Clean Code <br/>
+                    Testing <br/>
+                    Optimización <br/>
+                </td>
+            </tr>
+        </table>
+    </section>
+
+    <section id="Contact">
+        <h2>Contact</h2>
+        You can contact me via mail: jorgegarciacebem@gmail.com<br/><br/>
+        Also my WhatsApp: +55 555 55 55 55.<br/><br/>
+        My Discord: xxxxxxxxxx<br/><br/>
+        My GitHub: https://github.com/jgl1201<br/><br/>
+    </section>
+
+    <footer>
+        <p>© 2024 Jorge García López</p>
+        <p>
+            <a href="https://github.com/jgl1201">
+                <img src="/img/github.png" alt="github" class="invert">
+            </a>
+        </p>
+
+        <p>
+            <a href="https://www.linkedin.com/in/jorge-garc%C3%ADa-941690274/">
+                <img src="/img/linkedin.png" alt="linkedin">
+            </a>
+        </p>
+
+        <p>
+            <img src="/img/llamada.png" alt="phone" class="invert">
+        </p>
+
+        <p>
+            <a href="mailto:jorgegarciacebem@gmail.com?subject=Contacto Via Web&body=Te contacto desde tu pagina web por:">
+                <img src="/img/email.png" alt="mail" class="invert">
+            </a>
+        </p>
+    </footer> 
+
+    <script>
+
+        document.addEventListener("DOMContentLoaded", function () {
+        const sections = document.querySelectorAll("section");
+        const navLinks = document.querySelectorAll(".nav-items a");
+
+        window.addEventListener("scroll", function () {
+            let currentSection = "";
+
+            sections.forEach((section) => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+
+                if (pageYOffset >= sectionTop - sectionHeight / 2) {
+                    currentSection = section.getAttribute("id");
+                }
+            });
+
+            navLinks.forEach((link) => {
+                link.classList.remove("active");
+                if (link.getAttribute("href").substring(1) === currentSection) {
+                    link.classList.add("active");
+                }
+            });
+        });
+    });
+
+    function toggleNav() {
+        const nav = document.querySelector('nav');
+        nav.classList.toggle('active');
+    }
+    // Cerrar el menú hamburguesa al hacer clic en un enlace del menú
+    document.querySelectorAll('.nav-items a').forEach(function (link) {
+        link.addEventListener('click', function () {
+        const nav = document.querySelector('nav');
+        nav.classList.remove('active');
+        });
+    });
+
+    </script>
+
+</body>
+</html>
