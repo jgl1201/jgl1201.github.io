@@ -6,7 +6,7 @@
 
 ## GENERAL INFO
 
-Esto es un trabajo en el que hay que diseñar y desarrollar una `web responsive`.
+Esto es un trabajo en el que hay que diseñar y desarrollar una [WEB](https://jgl1201.github.io/).
 
 ### Requisitos
 
