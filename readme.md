@@ -21,7 +21,7 @@ Esto es un trabajo en el que hay que diseñar y desarrollar una [WEB](https://jg
 - [x] No contener errores de accesibilidad. --> Comprobación mediante [Webaim](https://wave.webaim.org/extension/).
 
 - [x] Usar al menos `3 leyes del UX`.
-
+git add
 - [x] Utilizar `import` y `export` de código js.
 
 - [x] Utilizar una función `arrow => {}`.
